@@ -5,7 +5,7 @@
 #include <cstring>
 #include "contact.hpp"
 
-Contact add_fonction(Contact contact)
+Contact Contact::add_fonction(Contact contact)
 {
     std::string str;
 
@@ -48,7 +48,7 @@ std::string    tronc_string(std::string str)
     return tronc;
 }
 
-void    search_fonction(Contact contact, int i)
+void    Contact::search_fonction(Contact contact, int i) const
 {
     int lengh;
 
@@ -119,7 +119,7 @@ int get_index(void)
     return -1;
 }
 
-void    print_contact(Contact contact, int i, int search)
+void    Contact::print_contact(Contact contact, int i, int search) const
 {
     if (search > i - 1)
         std::cout << "This index don't matche with a contact." << std::endl;
@@ -151,7 +151,7 @@ int main(int argc, char **argv)
         {    
             if (i < 8)
             {
-                contact[i] = add_fonction(contact[i]);
+                contact[i] = contact[i].add_fonction(contact[i]);
                 i++;
             }
             else
@@ -165,12 +165,12 @@ int main(int argc, char **argv)
             {
                 while (search != i)
                 {
-                    search_fonction(contact[search], search + 1);
+                    contact[search].search_fonction(contact[search], search + 1);
                     search++;
                 }
                 search = get_index();
                 if (search != -1)
-                    print_contact(contact[search], i, search);
+                    contact[search].print_contact(contact[search], i, search);
                 search = 0;
             }
         }
