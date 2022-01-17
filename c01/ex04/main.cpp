@@ -10,6 +10,7 @@ int main(int argc, char **argv)
         return (0);
     }
 
+    int i = 0;
     std::ifstream   ifs(argv[1]);
     std::string     word;
     std::string     all;
@@ -25,16 +26,16 @@ int main(int argc, char **argv)
     while(getline(ifs, word))
         all = all + word + "\n"; 
     ifs.close();
-    std::size_t found = all.find(s1);
     outfile = (std::string)argv[1] + ".replace";
     std::ofstream   ofs(outfile);
-    if (found == std::string::npos)
-        ofs << all;
-    else
+    std::size_t found = all.find(s1);
+    while (found != std::string::npos)
     {
         all.erase(found, s1.size());
         all.insert(found,s2);
-        ofs << all;
+        i++;
+        found = all.find(s1);
     }
+    ofs << all;
     return 0;
 }
