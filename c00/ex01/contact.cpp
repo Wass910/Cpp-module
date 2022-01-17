@@ -7,7 +7,9 @@
 
 Contact Contact::add_fonction(Contact contact)
 {
-	std::string str;
+	int stop_loop = 0;
+	int count;
+	int verif_phone;
 
 	std::cout << "First name : ";
 	getline(std::cin, contact.first_name);
@@ -17,6 +19,22 @@ Contact Contact::add_fonction(Contact contact)
 	getline(std::cin, contact.nickname);
 	std::cout << "Phone number : ";
 	getline(std::cin, contact.phone_number);
+	while (1)
+	{
+		count = 0;
+		verif_phone = 0;
+		while (contact.phone_number[count])
+		{
+			if (contact.phone_number[count] > '9' || contact.phone_number[count] < '0')
+				verif_phone++;
+			count++;
+		}
+		if (verif_phone == 0)
+			break ;
+		std::cout << "Phone number is only composed of digit. Please try again." << std::endl;
+		std::cout << "Phone number : ";
+		getline(std::cin, contact.phone_number);
+	}
 	std::cout << "Dark secret : ";
 	getline(std::cin, contact.dark_secret);
 	std::cout << "Your contact have been add with success." << std::endl;
