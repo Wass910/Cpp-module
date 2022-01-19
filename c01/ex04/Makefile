@@ -4,14 +4,14 @@ OBJS			= $(SRC:.cpp=.o)
 
 NAME			= replace
 
-CFLAGS			= -Wall -Wextra -Werror
+CFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -f
 
 CC				= clang++
 
-.c.o:
-				$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+%.o : %.cpp
+				$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):		$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L.

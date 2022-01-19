@@ -18,6 +18,11 @@ int main(int argc, char **argv)
     std::string     s1 = (std::string)argv[2];
     std::string     s2 = (std::string)argv[3];
 
+    if (s1.empty() || s2.empty())
+    {
+        std::cout << "String can't be empty." << std::endl;
+        return (0);
+    }
     if (!ifs)
     {
         std::cout << "File doesn't exist." << std::endl;

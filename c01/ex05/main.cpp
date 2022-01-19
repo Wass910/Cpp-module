@@ -6,6 +6,6 @@ int main()
 {
     Karen karen;
     
-    karen.complain("INFO");
+    karen.complain("DEBUG");
     return 0;
 }
