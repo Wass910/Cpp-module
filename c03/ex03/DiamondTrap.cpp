@@ -2,11 +2,11 @@
 #include <string>
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap( void )
+DiamondTrap::DiamondTrap( void ) : ScavTrap(), FragTrap()
 {
-    this->_Hit = 100;
-    this->_Energy = 100;
-    this->_Attack = 30;
+    this->_Energy = ScavTrap::_Energy;
+    this->_Attack = FragTrap::_Attack;
+    this->_Hit = FragTrap::_Hit;
     std::cout << "DiamondTrap default constructor is call." << std::endl;
     return ;
 }
@@ -45,6 +45,7 @@ DiamondTrap & DiamondTrap::operator=( DiamondTrap const & src )
 void    DiamondTrap::attack( const std::string & target )
 {
     std::cout << "DiamondTrap " << this->_name << " attacks " << target << ", causing " << this->_Attack << " points of damage!" << std::endl;
+    this->_Energy--;
     return ;
 }
 

@@ -53,5 +53,6 @@ void    FragTrap::HighFivesGuys( void ) const
 void    FragTrap::attack( const std::string & target )
 {
     std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_Attack << " points of damage!" << std::endl;
+    this->_Energy--;
     return ;
 }
