@@ -6,8 +6,7 @@
 
 class AAnimal{
 public:
-    AAnimal( void );
-    AAnimal( AAnimal const & src );
+    
     virtual ~AAnimal( void );
     
     virtual void makeSound( void ) const = 0;
