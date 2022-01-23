@@ -25,7 +25,7 @@ Cure* Cure::clone() const
 Cure::Cure( Cure const & src)
 {
     std::cout << "Cure copy constructor is call." << std::endl;
-    *this = src;
+    this->_type = src._type;
     return ;
 }
 

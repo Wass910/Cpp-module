@@ -12,7 +12,7 @@ Ice::Ice( void )
 Ice::Ice( Ice const & src)
 {
     std::cout << "Ice copy constructor is call." << std::endl;
-    *this = src;
+    this->_type = src._type;
     return ;
 }
 
