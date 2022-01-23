@@ -28,6 +28,7 @@ class Character : public ICharacter
         virtual void equip(AMateria* m);
         virtual void unequip(int idx);
         virtual void use(int idx, ICharacter& target);
+    
     private:
         std::string _type;
         AMateria * _inventoryType[4];

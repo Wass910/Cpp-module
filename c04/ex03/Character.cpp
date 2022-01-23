@@ -93,7 +93,6 @@ void Character::use(int idx, ICharacter & target)
         std::cout << "Index is too big." << std::endl;
         return ;
     }
-    std::cout << idx << std::endl;
     this->_inventoryType[idx]->use(target);
     return ;
 }

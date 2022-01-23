@@ -5,7 +5,6 @@
 Cure::Cure( void )
 {
     this->_type = "cure";
-    std::cout << this->_type << std::endl;
     std::cout << "Cure default constructor is call." << std::endl;
     return ;
 }

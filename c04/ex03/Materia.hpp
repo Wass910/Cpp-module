@@ -33,9 +33,7 @@ class MateriaSource : public IMateriaSource {
         MateriaSource( void );
         MateriaSource( MateriaSource const & src );
         ~MateriaSource( void );
-        //MateriaSource(std::string const & type);
-
-        //std::string const & getType() const;
+        
         virtual void learnMateria(AMateria*);
         virtual AMateria* createMateria(std::string const & type);
         MateriaSource & operator=( MateriaSource const & src );
