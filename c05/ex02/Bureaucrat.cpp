@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Bureaucrat::Bureaucrat( void)
 {
@@ -56,8 +59,15 @@ void    Bureaucrat::decrement( void )
     return ;
 }
 
+void    Bureaucrat::executeForm( AForm const & form )
+{
+    form.execute(*this);
+    //std::cout << this->getName() << " executs " << AForm << std::endl;
+    return ;
+} 
 
-void    Bureaucrat::signForm( Form  const & src ) const
+
+void    Bureaucrat::signForm( AForm const & src ) const
 {
     if (src.getSign() == true)
         std::cout << this->getName() << " signs " << src.getName() <<std::endl;

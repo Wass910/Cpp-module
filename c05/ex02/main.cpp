@@ -2,42 +2,79 @@
 #include <string>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main()
+
+int	main(void)
 {
-    try{
-        Bureaucrat test1("wassim", 1);
-        Bureaucrat test2("gildas", 150);
-        Bureaucrat test3("adam", 100);
-        Form    facture1("eau", 100, 25);
-        Form    facture2("tel", 20, 10);
-        std::cout << "--------------------" << std::endl;
-        std::cout << test1 << std::endl;
-        std::cout << test2 << std::endl;
-        std::cout << test3 << std::endl;
-        test1.decrement();
-        test2.increment();
-        test3.increment();
-        std::cout << test1 << std::endl;
-        std::cout << test2 << std::endl;
-        std::cout << test3 << std::endl;
-        std::cout << facture1 << std::endl;
-        std::cout << facture2 << std::endl;
-        facture1.beSigned(test2);
-        facture1.beSigned(test3);
-        facture1.beSigned(test1);
-        facture2.beSigned(test2);
-        facture2.beSigned(test3);
-        facture2.beSigned(test1);
-        Form    crash("dont good", 100, 0);
-        std::cout << facture1 << std::endl;
-        std::cout << facture2 << std::endl;
-        std::cout << "--------------------" << std::endl;
-    }
-    catch (std::exception & e)
-    {
-        std::cout << "--------------------" << std::endl;
-        std::cout << e.what() << std::endl;
-    }
-    return 0;
+	AForm			*form = NULL;
+	Bureaucrat		bob("bob", 1);
+	Bureaucrat		phil("phil", 40);
+	Bureaucrat		luc("luc", 150);
+
+	try
+	{
+		form = new PresidentialPardonForm("28Z");
+		form->execute(bob);
+		delete form;
+		form = NULL;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	try
+	{
+		form = new PresidentialPardonForm("28A");
+		form->beSigned(bob);
+		form->execute(bob);
+		delete form;
+		form = NULL;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
+	try
+	{
+		form = new RobotomyRequestForm("28B");
+		form->beSigned(bob);
+		form->execute(phil);
+		form->execute(phil);
+		form->execute(phil);
+		form->execute(phil);
+		form->execute(phil);
+		form->execute(phil);
+		form->execute(phil);
+		form->execute(phil);
+		form->execute(phil);
+		delete form;
+		form = NULL;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
+	try
+	{
+		form = new ShrubberyCreationForm("28C");
+		form->beSigned(bob);
+		form->execute(phil);
+		form->execute(luc);
+		delete form;
+		form = NULL;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	return 0;
 }

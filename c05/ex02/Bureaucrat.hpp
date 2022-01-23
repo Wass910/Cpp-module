@@ -6,7 +6,7 @@
 #include <exception>
 #include "Form.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
     public:
@@ -31,7 +31,8 @@ class Bureaucrat {
                 }
         };
 
-        void    signForm( Form const & src ) const;
+        void    signForm( AForm const & src ) const;
+        void    executeForm( AForm const & test );
         void    increment( void );
         void    decrement( void );
         std::string getName( void ) const;

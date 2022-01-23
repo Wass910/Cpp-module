@@ -59,9 +59,13 @@ Form::~Form( void )
     return ;
 }
 
-Form & Form::operator=( Form const & src )
+Form & Form::operator=( Form const & src ) 
 {
-    *this = src;
+    /* this->_name = src.getName();
+    this->_sign = src.getSign();
+    this->_gradeToExecute = src.getGradeToExecute();
+    this->_gradeToSign = src.getGradeToSign(); */
+    (void)src;
     return *this;
 }
 

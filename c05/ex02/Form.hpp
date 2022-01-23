@@ -1,5 +1,5 @@
-#ifndef FORM_H
-# define FORM_H
+#ifndef AFORM_H
+# define AFORM_H
 
 #include <iostream>
 #include <string>
@@ -8,12 +8,12 @@
 
 class Bureaucrat ;
 
-class Form {
+class AForm {
     public:
-        Form( void );
-        Form( std::string const & name, int const Tosign, int const Toexecute);
-        Form( Form const & src );
-        ~Form(void);
+        AForm( void );
+        AForm( std::string const & name, int const Tosign, int const Toexecute);
+        AForm( AForm const & src );
+        virtual ~AForm(void);
         
         class GradeTooHighException : public std::exception {
             public:
@@ -31,13 +31,29 @@ class Form {
                 }
         };
 
-        
+        class Unsign : public std::exception {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return ("Form is unsign.");
+                }
+        };
+
+        class ExecuteFail : public std::exception {
+            public:
+                virtual const char* what() const throw()
+                {
+                    return ("the bureaucrat can't execute the form.");
+                }
+        };
+
         std::string getName( void ) const;
-        void        beSigned( Bureaucrat const & src);
-        int         getGradeToSign( void ) const;
-        int         getGradeToExecute( void ) const;
-        bool        getSign( void ) const;
-        Form & operator=( Form const & src );
+        virtual void        beSigned( Bureaucrat const & src);
+        virtual int         getGradeToSign( void ) const;
+        virtual int         getGradeToExecute( void ) const;
+        virtual bool        getSign( void ) const;
+        AForm & operator=( AForm const & src );
+        virtual void    execute (Bureaucrat const & executor) const = 0;
         
     private:
         const std::string _name;
@@ -46,6 +62,6 @@ class Form {
         const int _gradeToExecute;
 };
 
-std::ostream &  operator<<( std::ostream & o, Form const & i );
+std::ostream &  operator<<( std::ostream & o, AForm const & i );
 
 #endif
