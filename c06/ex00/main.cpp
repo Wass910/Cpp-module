@@ -14,10 +14,7 @@ void    from_int( int to_cast)
     std::cout  << "float : " << f << ".Of" << std::endl;
     std::cout  << "double : " << d << ".0" << std::endl;
     if (to_cast > 32 && to_cast < 127)
-    {
         std::cout << "char : " << "'" << c << "'" << std::endl;
-        return ;
-    }
     else 
         std::cout << "char : " << "non displayable" << std::endl;
     return ;
@@ -44,10 +41,7 @@ void    from_float(float to_cast, int need_precision)
         std::cout  << "double : " << d << std::endl;
     }
     if (i > 32 && i < 127)
-    {
         std::cout << "char : " << "'" << c << "'" << std::endl;
-        return ;
-    }
     else 
         std::cout << "char : " << "non displayable" << std::endl;
     return ;
@@ -66,7 +60,7 @@ void    from_double(double to_cast, int need_precision)
     if (need_precision == 0)
     {
         if (to_cast > __FLT_MAX__ || to_cast < __FLT_MIN__)
-            std::cout << "float : " << "inf" << std::endl;
+            std::cout << "float : " << "inff" << std::endl;
         else
             std::cout  << "float : " << f << ".0f" << std::endl;
         std::cout  << "double : " << to_cast << ".0" << std::endl;
@@ -77,10 +71,7 @@ void    from_double(double to_cast, int need_precision)
         std::cout  << "double : " << to_cast << std::endl;
     }
     if (i > 32 && i < 127)
-    {
         std::cout << "char : " << "'" << c << "'" << std::endl;
-        return ;
-    }
     else 
         std::cout << "char : " << "non displayable" << std::endl;
     return ;
@@ -153,10 +144,7 @@ int    convert(std::string str)
     int is_not_integer  = 0;
 
     if (str.length() == 1 && ((str[0] > 32 && str[0] < 48 ) || (str[0] > 57 && str[0] < 127)))
-    {    
-        std::cout << "C'est un char." << std::endl;
         return 1;
-    }
     if (str[i] == '-')
         i++;
     while (str[i])
@@ -166,10 +154,7 @@ int    convert(std::string str)
         i++;
     }
     if (is_not_integer == 0)
-    {
-        std::cout << "C'est un int." << std::endl;
         return 2;
-    }
     i = 0;
     if (str[i] == '-')
         i++;
@@ -236,7 +221,6 @@ int main(int argc, char **argv)
     }
     for_the_science(argv[1]);
     what_type = convert(argv[1]);
-    std::cout << what_type << std::endl;
     try {
         switch (what_type)
         {
