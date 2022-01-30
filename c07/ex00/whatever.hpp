@@ -3,7 +3,7 @@
 #include <string>
 
 template<typename T>
-T max(const T& a, const T& b)
+T const & max(const T& a, const T& b)
 {
     if (a > b)
         return (a);
@@ -13,7 +13,7 @@ T max(const T& a, const T& b)
 }
 
 template<typename T>
-T min(const T& a, const T& b)
+T const & min(const T& a, const T& b)
 {
     if (a < b)
         return (a);
