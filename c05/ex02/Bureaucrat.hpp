@@ -31,7 +31,7 @@ class Bureaucrat {
                 }
         };
 
-        void    signForm( AForm const & src ) const;
+        void    signForm( AForm & src ) ;
         void    executeForm( AForm const & test );
         void    increment( void );
         void    decrement( void );

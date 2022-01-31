@@ -55,7 +55,7 @@ class AForm {
                 }
         };
         std::string getName( void ) const;
-        virtual void        beSigned( Bureaucrat const & src);
+        virtual void        beSigned( Bureaucrat & src);
         virtual int         getGradeToSign( void ) const;
         virtual int         getGradeToExecute( void ) const;
         virtual bool        getSign( void ) const;

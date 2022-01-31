@@ -26,7 +26,7 @@ void    from_float(float to_cast, int need_precision)
     double d = static_cast<double>(to_cast);
     char c = static_cast<char>(to_cast);
 
-    if (to_cast > INT_MAX || to_cast < INT_MIN)
+    if (to_cast > 2147483647.0f || to_cast < -2147483648.0f)
         std::cout << "int : " << "impossible" << std::endl;
     else
         std::cout << "int : " << i << std::endl;
@@ -211,8 +211,6 @@ int main(int argc, char **argv)
 {
     int what_type;
     int need_precision;
-    int lengh ;
-    int test;
 
     if (argc != 2)
     {
@@ -228,15 +226,17 @@ int main(int argc, char **argv)
                 from_char(argv[1][0]);
                 break ;
             case 2:
-                from_int(std::stoi(argv[1]));
+                int verif;
+                if ()
+                from_int(atoi(argv[1]));
                 break ;
             case 3:
                 need_precision = to_precision_f(argv[1]);
-                from_float(std::stof(argv[1]), need_precision);
+                from_float(atof(argv[1]), need_precision);
                 break ;
             case 4:
                 need_precision = to_precision(argv[1]);
-                from_double(std::stod(argv[1]), need_precision);
+                from_double(atof(argv[1]), need_precision);
                 break ;
             default:
                 std::cout << "Not good synthax." << std::endl;

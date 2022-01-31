@@ -33,7 +33,7 @@ class Form {
 
         
         std::string getName( void ) const;
-        void        beSigned( Bureaucrat const & src);
+        void        beSigned( Bureaucrat & src);
         int         getGradeToSign( void ) const;
         int         getGradeToExecute( void ) const;
         bool        getSign( void ) const;

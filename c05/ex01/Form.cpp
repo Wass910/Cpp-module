@@ -44,13 +44,12 @@ bool Form::getSign( void ) const
     return this->_sign;
 }
 
-void Form::beSigned( Bureaucrat const & src)
+void Form::beSigned( Bureaucrat & src)
 {
     if (src.getGrade() <= this->_gradeToSign)
         this->_sign = true;
     else  
-        throw GradeTooLowException();
-    src.signForm(*this);
+        throw GradeTooHighException();
     return ;
 }
 
@@ -63,6 +62,7 @@ Form::~Form( void )
 
 Form & Form::operator=( Form const & src ) 
 {
+    (void)src;
     return *this;
 }
 

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <limits.h>
+#include <stdint.h>
 #include <math.h>
 #include <string>
 
@@ -30,8 +30,6 @@ int main(int argc, char **argv)
 {
     t_data data;
     t_data *data2;
-    uintptr_t test;
-    void *final;
 
     if (argc != 3)
     {

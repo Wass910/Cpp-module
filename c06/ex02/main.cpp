@@ -1,12 +1,11 @@
 #include "Empty.hpp"
+#include <stdlib.h>
 
 Base* generate(void)
 {
-    int i;
     Base  *base;
 
-    srand((unsigned)time(0)); 
-    i = (rand()%3)+1;
+    unsigned int i = std::rand() % 9;
     std::cout << i << std::endl;
     switch (i)
     {
@@ -57,6 +56,7 @@ void identify( Base & p)
     try
     {
         Base & base = dynamic_cast<A &>(p);
+        (void)base;
         std::cout << "From Reference : The instance is A" << std::endl; 
     }
     catch(const std::exception& e)
@@ -64,6 +64,7 @@ void identify( Base & p)
         try
         {
             Base & base = dynamic_cast<B &>(p);
+            (void)base;
             std::cout << "From Reference : The instance is B" << std::endl; 
         }
         catch(const std::exception& e)
@@ -71,6 +72,7 @@ void identify( Base & p)
             try
             {
                 Base & base = dynamic_cast<C &>(p);
+                (void)base;
                 std::cout << "From Reference : The instance is C" << std::endl;
             }
             catch(const std::exception& e)

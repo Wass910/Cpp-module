@@ -35,7 +35,7 @@ class Bureaucrat {
         Bureaucrat & operator=( Bureaucrat const & src );
         
     private:
-        std::string _name;
+        const std::string _name;
         int _grade;
 };
 

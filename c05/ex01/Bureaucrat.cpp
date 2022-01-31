@@ -57,10 +57,13 @@ void    Bureaucrat::decrement( void )
 }
 
 
-void    Bureaucrat::signForm( Form  const & src ) const
+void    Bureaucrat::signForm( Form & src ) 
 {
+    src.beSigned(*this);
     if (src.getSign() == true)
         std::cout << this->getName() << " signs " << src.getName() <<std::endl;
+    else 
+        std::cout << this->getName() <<  "cannot sign " << src.getName() << " because he don't have the necessary grade." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat( void )

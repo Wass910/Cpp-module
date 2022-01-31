@@ -31,7 +31,7 @@ class Bureaucrat {
                 }
         };
 
-        void    signForm( Form const & src ) const;
+        void    signForm( Form & src );
         void    increment( void );
         void    decrement( void );
         std::string getName( void ) const;

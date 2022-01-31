@@ -67,12 +67,13 @@ void    Bureaucrat::executeForm( AForm const & form )
 } 
 
 
-void    Bureaucrat::signForm( AForm const & src ) const
+void    Bureaucrat::signForm( AForm & src ) 
 {
+    src.beSigned(*this);
     if (src.getSign() == true)
         std::cout << this->getName() << " signs " << src.getName() <<std::endl;
-    else if (this->getGrade() > src.getGradeToSign())
-        std::cout << this->getName() << " cannot sign because his grade is too low." <<std::endl;
+    else 
+        std::cout << this->getName() <<  "cannot sign " << src.getName() << " because he don't have the necessary grade." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat( void )
