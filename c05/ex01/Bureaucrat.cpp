@@ -61,8 +61,6 @@ void    Bureaucrat::signForm( Form  const & src ) const
 {
     if (src.getSign() == true)
         std::cout << this->getName() << " signs " << src.getName() <<std::endl;
-    else if (this->getGrade() > src.getGradeToSign())
-        std::cout << this->getName() << " cannot sign because his grade is too low." <<std::endl;
 }
 
 Bureaucrat::~Bureaucrat( void )

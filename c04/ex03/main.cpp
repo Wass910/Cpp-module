@@ -16,6 +16,12 @@ int main()
     moi->equip(tmp);
     tmp = src->createMateria("cure");
     moi->equip(tmp);
+    tmp = src->createMateria("ice");
+    moi->equip(tmp);
+    tmp = src->createMateria("cure");
+    moi->equip(tmp);
+    tmp = src->createMateria("ice");
+    moi->equip(tmp);
     ICharacter* bob = new Character("bob");
     moi->use(0, *bob);
     moi->use(1, *bob);
@@ -28,6 +34,7 @@ int main()
     std::cout << "Ice materia type : " << mat->getType() << std::endl;
     delete bob;
     delete moi;
+    delete tmp;
     delete src;
     delete mat;
     return 0;

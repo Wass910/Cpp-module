@@ -23,9 +23,9 @@ int main()
         std::cout << test3 << std::endl;
         std::cout << facture1 << std::endl;
         std::cout << facture2 << std::endl;
-        facture1.beSigned(test2);
-        facture1.beSigned(test3);
         facture1.beSigned(test1);
+        facture1.beSigned(test3);
+        facture1.beSigned(test2);
         facture2.beSigned(test2);
         facture2.beSigned(test3);
         facture2.beSigned(test1);

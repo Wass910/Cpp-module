@@ -117,6 +117,7 @@ Fixed  Fixed::operator++( int test)
 {
     //std::cout << "Assignation operator called" << std::endl;
     Fixed  temp = *this;
+    test++;
     ++*this;
     return temp;
 }

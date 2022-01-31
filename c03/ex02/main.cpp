@@ -5,7 +5,7 @@ int main(void){
 	ScavTrap robot("robot");
 	robot.attack("dog");
 	robot.guardGate();
-	robot.beRepaired(-11);
+	robot.beRepaired(8);
 	FragTrap soldier("soldier");
 	soldier.HighFivesGuys();
 	soldier.attack("ennemyPng");

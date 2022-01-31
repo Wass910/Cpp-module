@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-#include <chrono>
-#include <random>
+#include <stdlib.h>
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm( void) : AForm("RobotomyRequestForm", 72, 45), _target("")
@@ -30,9 +29,7 @@ std::string RobotomyRequestForm::getTarget( void ) const
 void    RobotomyRequestForm::drillNoise( void ) const
 {
     std::cout << "DRzzzzzzzzz DRzzzzzzzzz" << std::endl;
-    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::ranlux24 generator (seed);
-    int rdm_nb = seed;
+    int rdm_nb = std::rand() % 2;
     if ((rdm_nb % 2) == 0)
         std::cout << this->getTarget() << " Robotomization finish with succes." << std::endl;
     else

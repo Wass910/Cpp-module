@@ -29,7 +29,8 @@ void    ShrubberyCreationForm::drawThree( void ) const
 {
     std::string outfile = this->_target;
     outfile += "_shrubbery";
-    std::ofstream ofs(outfile);
+    std::ofstream ofs;
+    ofs.open(outfile.c_str());
     if (!(ofs.is_open()))
         std::cout << "can't open the file." << std::endl;
     else

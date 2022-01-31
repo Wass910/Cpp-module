@@ -13,6 +13,7 @@ Intern::Intern( void )
 
 Intern::Intern( Intern const & src )
 {
+    (void)src;
     std::cout << "Intern copy constructor is call." << std::endl;
     return ;
 }
@@ -50,7 +51,7 @@ Intern::~Intern( void )
 
 Intern & Intern::operator=( Intern const & src )
 {
-    *this = src;
+    (void)src;
     return *this;
 }
 

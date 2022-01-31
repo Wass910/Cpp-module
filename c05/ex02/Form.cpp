@@ -2,13 +2,13 @@
 #include <string>
 #include "Form.hpp"
 
-AForm::AForm( void) : _name("default"), _gradeToExecute(150), _gradeToSign(150), _sign(false)
+AForm::AForm( void) : _name("default"), _sign(false), _gradeToSign(150), _gradeToExecute(150)
 {
     std::cout << "AForm default constructor is call." << std::endl;
     return ;
 }
 
-AForm::AForm( std::string const & name, int const Tosign, int const Toexecute) : _name(name), _sign(false), _gradeToExecute(Toexecute), _gradeToSign(Tosign)
+AForm::AForm( std::string const & name, int const Tosign, int const Toexecute) : _name(name), _sign(false), _gradeToSign(Tosign), _gradeToExecute(Toexecute)
 {
     if (Toexecute < 1 || Tosign < 1)
 		throw GradeTooLowException();
@@ -18,7 +18,7 @@ AForm::AForm( std::string const & name, int const Tosign, int const Toexecute) :
     return ;
 }
 
-AForm::AForm( AForm const & src) : _name(src.getName()), _sign(src.getSign()), _gradeToExecute(src.getGradeToExecute()), _gradeToSign(src.getGradeToSign())
+AForm::AForm( AForm const & src) : _name(src.getName()), _sign(src.getSign()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())
 {
     std::cout << "AForm copy constructor is call." << std::endl;
     return ;
@@ -60,7 +60,7 @@ AForm::~AForm( void )
 
 AForm & AForm::operator=( AForm const & src )
 {
-    *this = src;
+    (void)src;
     return *this;
 }
 

@@ -12,6 +12,14 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::MateriaSource(MateriaSource const & src)
 {
+    int i = 0;
+
+    while (i < 4)
+    {
+        if (this->_materias[i] != NULL)
+            delete this->_materias[i];
+        i++;
+    }
     std::cout << "MateriaSource destructor called" << std::endl;
     this->_materias[0] = src._materias[0];
     this->_materias[1] = src._materias[1];
@@ -22,6 +30,14 @@ MateriaSource::MateriaSource(MateriaSource const & src)
 
 MateriaSource & MateriaSource::operator=( MateriaSource const & src )
 {
+    int i = 0;
+
+    while (i < 4)
+    {
+        if (this->_materias[i] != NULL)
+            delete this->_materias[i];
+        i++;
+    }
     this->_materias[0] = src._materias[0];
     this->_materias[1] = src._materias[1];
     this->_materias[2] = src._materias[2];
@@ -49,13 +65,23 @@ AMateria*    MateriaSource::createMateria(std::string const & type)
     for(int i = 0;i < 4 && this->_materias[i]; i++)
     {
         if(type == this->_materias[i]->getType())
+        {    
             return this->_materias[i]->clone();
+        }
     }
     return NULL;
 }
 
 MateriaSource::~MateriaSource(void)
 {
+    int i = 0;
+
+    while (i < 4)
+    {
+        if (this->_materias[i] != NULL)
+            delete this->_materias[i];
+        i++;
+    }
     std::cout << "MateriaSource destructor called" << std::endl;
     return;
 }

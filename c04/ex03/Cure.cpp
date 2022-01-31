@@ -36,7 +36,7 @@ Cure::~Cure( void )
 
 Cure & Cure::operator=( Cure const & src )
 {
-    (void)src;
+    this->_type = src._type;
     return *this;
 }
 

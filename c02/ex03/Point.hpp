@@ -17,8 +17,8 @@ public:
     Point  operator=( Point const & src )const ;
 
 private:
-    Fixed const _y;
     Fixed const _x;
+    Fixed const _y;
 };
 
 bool bsp( Point const a, Point const b, Point const c, Point const point);

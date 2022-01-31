@@ -16,6 +16,7 @@ Character::Character( void )
 
 Character::Character( std::string const & type ) : _type(type)
 {
+    
     this->_inventoryType[0] = NULL;
     this->_inventoryType[1] = NULL;
     this->_inventoryType[2] = NULL;
@@ -99,6 +100,16 @@ void Character::use(int idx, ICharacter & target)
 
 Character::~Character( void )
 {
+    int i = 0;
+
+    while (i < 4)
+    {
+        if (this->_inventoryType[i] != NULL)
+            delete this->_inventoryType[i];
+        i++;
+    }
+    if (this->_unequip != NULL)
+        delete this->_unequip;
     std::cout << "Character destructor is call." << std::endl;
     return ;
 }

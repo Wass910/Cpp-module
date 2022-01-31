@@ -2,13 +2,13 @@
 #include <string>
 #include "Form.hpp"
 
-Form::Form( void) : _name("default"), _gradeToExecute(150), _gradeToSign(150), _sign(false)
+Form::Form( void) : _name("default"), _sign(false), _gradeToSign(150), _gradeToExecute(150)
 {
     std::cout << "Form default constructor is call." << std::endl;
     return ;
 }
 
-Form::Form( std::string const & name, int const Tosign, int const Toexecute) : _name(name), _sign(false), _gradeToExecute(Toexecute), _gradeToSign(Tosign)
+Form::Form( std::string const & name, int const Tosign, int const Toexecute) : _name(name), _sign(false), _gradeToSign(Tosign), _gradeToExecute(Toexecute)
 {
     if (Toexecute < 1 || Tosign < 1)
 		throw GradeTooLowException();
@@ -18,7 +18,7 @@ Form::Form( std::string const & name, int const Tosign, int const Toexecute) : _
     return ;
 }
 
-Form::Form( Form const & src) : _name(src.getName()), _sign(src.getSign()), _gradeToExecute(src.getGradeToExecute()), _gradeToSign(src.getGradeToSign())
+Form::Form( Form const & src) : _name(src.getName()), _sign(src.getSign()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())
 {
     std::cout << "Form copy constructor is call." << std::endl;
     return ;
@@ -48,6 +48,8 @@ void Form::beSigned( Bureaucrat const & src)
 {
     if (src.getGrade() <= this->_gradeToSign)
         this->_sign = true;
+    else  
+        throw GradeTooLowException();
     src.signForm(*this);
     return ;
 }
@@ -61,20 +63,15 @@ Form::~Form( void )
 
 Form & Form::operator=( Form const & src ) 
 {
-    /* this->_name = src.getName();
-    this->_sign = src.getSign();
-    this->_gradeToExecute = src.getGradeToExecute();
-    this->_gradeToSign = src.getGradeToSign(); */
-    (void)src;
     return *this;
 }
 
 std::ostream & operator<<(std::ostream & o, Form const & i)
 {
     if (i.getSign() == true)
-        o << i.getName() << " is signed.Form grade to sign = " << i.getGradeToSign() << " and to execute : " << i.getGradeToExecute(); 
+        o << i.getName() << " is signed. Form grade to sign = " << i.getGradeToSign() << " and to execute : " << i.getGradeToExecute(); 
     else
-        o << i.getName() << " isn't signed.Form grade to sign = " << i.getGradeToSign() << " and to execute : " << i.getGradeToExecute(); 
+        o << i.getName() << " isn't signed. Form grade to sign = " << i.getGradeToSign() << " and to execute : " << i.getGradeToExecute(); 
     return o;
 }
 
