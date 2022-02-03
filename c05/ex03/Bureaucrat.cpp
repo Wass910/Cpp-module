@@ -11,10 +11,8 @@ Bureaucrat::Bureaucrat( void)
     return ;
 }
 
-Bureaucrat::Bureaucrat( std::string const & name, int level)
+Bureaucrat::Bureaucrat( std::string const & name, int level) : _name(name)
 {
-
-    this->_name = name;
     if (level < 1)
 		throw GradeTooLowException();
 	else if (level > 150)
@@ -25,10 +23,9 @@ Bureaucrat::Bureaucrat( std::string const & name, int level)
     return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const & src)
+Bureaucrat::Bureaucrat( Bureaucrat const & src) : _name(src.getName())
 {
     this->_grade = src._grade;
-    this->_name = src._name;
     std::cout << "Bureaucrat copy constructor is call." << std::endl;
     return ;
 }
@@ -82,10 +79,11 @@ Bureaucrat::~Bureaucrat( void )
     return ;
 }
 
-Bureaucrat & Bureaucrat::operator=( Bureaucrat const & src )
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &src) 
 {
     this->_grade = src._grade;
-    this->_name = src._name;
+    if (this->_name != src.getName())
+        *this = src;
     return *this;
 }
 

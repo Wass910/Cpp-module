@@ -17,7 +17,7 @@ class Array {
             std::cout << "Array initialisation constructor is call." << std::endl;
             this->_array = new T [n];
             this->_lengh = n;
-            int i = 0;
+            unsigned int i = 0;
             while (i < n)
             {    
                 this->_array[i] = 0;
@@ -27,7 +27,7 @@ class Array {
         }
         Array( Array const & src ){
             std::cout << "Array copy constructor is call." << std::endl;
-            int i = 0;
+            unsigned int i = 0;
             this->_array = new T [src._lengh];
             while (i < src._lengh)
             {
@@ -60,7 +60,7 @@ class Array {
 
         Array & operator=( Array const & src )
         {
-            int i = 0;
+            unsigned int i = 0;
             if (this->_array == NULL)
                 this->_array = new T [src._lengh];
             while (i < src._lengh)

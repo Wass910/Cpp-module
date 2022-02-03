@@ -4,6 +4,7 @@
 
 class HumanA {
 public:
+	HumanA( void );
 	HumanA( std::string name, Weapon& club);
 	~HumanA( void );
 

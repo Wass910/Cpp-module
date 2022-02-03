@@ -16,8 +16,9 @@ int main()
     {
     Weapon club = Weapon("Marteau");
     HumanB jim("Gildas");
-    jim.setWeapon(club);
+    //jim.setWeapon(club);
     jim.attack();
+    jim.setWeapon(club);
     club.setType("Baton");
     jim.attack();
     }

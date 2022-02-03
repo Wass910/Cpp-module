@@ -1,6 +1,6 @@
 #include "Span.hpp"
 
-Span::Span( void ) : _max (0),_vec(0, 0)
+Span::Span( void ) : _vec(0, 0), _max (0)
 {
     std::cout << "Constructor default is call." << std::endl;
     return ;
@@ -47,7 +47,7 @@ void    Span::addMoreNumber( unsigned int const number_of_value, unsigned int ma
 int Span::shortestSpan( void ) const
 {
     int span;
-    int i = 0;
+    unsigned int i = 0;
     std::vector<int> temp = this->_vec;
 
     if (this->_vec.size() <= 1)

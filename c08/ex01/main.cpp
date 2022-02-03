@@ -2,7 +2,7 @@
 
 int main()
 {
-    Span test(9);
+    Span test(30);
     std::vector<int> test_iter;
 
     int longest;
@@ -18,7 +18,7 @@ int main()
     test_iter.push_back(90);
     try
     {
-        test.addMoreNumber(10, 890);
+        test.addMoreNumber(9, 890);
         test.display();
         std::cout << "-----------------" << std::endl;
         test.iteratorRange(test_iter.begin(), test_iter.begin()+3);

@@ -5,7 +5,8 @@ Base* generate(void)
 {
     Base  *base;
 
-    unsigned int i = std::rand() % 9;
+    srand((unsigned)time(0)); 
+    int i = (rand()%3)+1;
     std::cout << i << std::endl;
     switch (i)
     {
@@ -92,5 +93,6 @@ int main()
     base = generate();
     identify(base);
     identify(*base);
+    delete base;
     return (0);
 }

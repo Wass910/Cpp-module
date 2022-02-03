@@ -49,7 +49,7 @@ void AForm::beSigned( Bureaucrat & src)
     if (src.getGrade() <= this->_gradeToSign)
         this->_sign = true;
     else  
-        throw GradeTooHighException();
+        throw GradeTooLowException();
     return ;
 }
 

@@ -52,6 +52,11 @@ void Karen::complain( std::string level )
     std::string to_compare = "DEBUG INFO WARNING ERROR";
     std::size_t found = to_compare.find(level);
 
+    if (level.empty())
+    {
+        std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+        return ;
+    }
     switch (found)
     {
         case 0:

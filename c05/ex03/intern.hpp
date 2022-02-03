@@ -16,6 +16,13 @@ class Intern {
         
         Intern & operator=( Intern const & src );
         AForm*    makeForm( std::string FormName, std::string target );
+    private:
+        
+        typedef struct s_formList
+		{
+			std::string formName;
+			AForm *formType;
+		}	t_formList;
 };
 
 #endif

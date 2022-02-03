@@ -1,23 +1,23 @@
 #include <string>
 #include <iostream>
+#include <stack>
+#include <algorithm>
+#include <vector>
+#include <iterator>
 
 template <typename T>
-class MutantStack{
+class MutantStack :  public std::stack<T>{
     public:
-        MutantStack( void ) : _Array(NULL), _lengh(0)
-        { 
-            return ; 
-        }
+        MutantStack( void ) { return ;}
+        MutantStack( MutantStack const & src ) : std::stack<T>(src) { return ;}
         ~MutantStack( void ){ return ;}
 
-        void push(T  i)
-        {
-            this->_Array = new T;
-            this->_Array[this->_lengh] = i;
-            return ;
+        MutantStack & operator=( MutantStack const & src ){
+            this->c = src.c;
+            return *this;
         }
+        typedef typename std::stack<T>::container_type::iterator  iterator;
 
-    private:
-        T * _Array;
-        unsigned int _lengh;
+        iterator begin( void ) { return  this->c.begin() ;}
+        iterator end( void ) { return  this->c.end() ;}
 };

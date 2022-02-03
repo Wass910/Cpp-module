@@ -22,25 +22,28 @@ AForm * Intern::makeForm( std::string FormName, std::string target)
 {
     if(target == "")
         throw AForm::NoTarget();
-    std::string to_find = " robotomy request presidential pardon shrubbery creation ";
-    int found = 0;
-    found = to_find.find(FormName);
-    switch (found)
-    {
-        case 1:
-            std::cout << std::endl << "Intern creates " << FormName << std::endl << std::endl;
-            return (new RobotomyRequestForm(target));
-        case 18:
-            std::cout << std::endl << "Intern creates " << FormName << std::endl << std::endl;
-            return (new PresidentialPardonForm(target));
-        case 38:
-            std::cout << std::endl << "Intern creates " << FormName << std::endl << std::endl;
-            return (new ShrubberyCreationForm(target));
-        default:
-            std::cout << "Intern can't find this Form" << std::endl;
-            break;
-    }
-    return NULL;
+    t_formList all[3];
+	all[0].formName = "robotomy request";
+	all[0].formType = new RobotomyRequestForm(target);
+	all[1].formName = "presidential pardon";
+	all[1].formType = new PresidentialPardonForm(target);
+	all[2].formName = "shrubbery creation";
+	all[2].formType = new ShrubberyCreationForm(target);
+	int for_the_boucle = -1;
+	for(int i = 0; i < 3; i++)
+	{
+		if (FormName == all[i].formName)
+			for_the_boucle = i;
+		else
+			delete all[i].formType;
+	} 
+	if (for_the_boucle == -1)
+	{	
+		std::cout << "----------------------" << std::endl;
+		std::cout << "This form doesn't exist, try again." <<std::endl;
+		return (NULL);
+	}
+	return (all[for_the_boucle].formType);
 }
 
 Intern::~Intern( void )
@@ -54,5 +57,3 @@ Intern & Intern::operator=( Intern const & src )
     (void)src;
     return *this;
 }
-
-

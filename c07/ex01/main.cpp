@@ -3,13 +3,6 @@
 #include <string>
 #include "iter.hpp"
 
-template<typename T>
-void const f(T const & a)
-{
-    std::cout << a << std::endl;
-    return ;
-}
-
 int main( void ) 
 {
     int const Arr[5] = {0, 1, 2, 3, 4};

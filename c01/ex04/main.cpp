@@ -10,7 +10,7 @@ int main(int argc, char **argv)
         return (0);
     }
 
-    int i = 0;
+    int count = 0;
     std::ifstream   ifs(argv[1]);
     std::string     word;
     std::string     all;
@@ -32,14 +32,18 @@ int main(int argc, char **argv)
         all = all + word + "\n"; 
     ifs.close();
     outfile = (std::string)argv[1] + ".replace";
-    std::ofstream   ofs(outfile);
-    std::size_t found = all.find(s1);
-    while (found != std::string::npos)
+    std::ofstream   ofs;
+    ofs.open(outfile.c_str());
+    while (count < (int)all.length())
     {
-        all.erase(found, s1.size());
-        all.insert(found,s2);
-        i++;
-        found = all.find(s1);
+        if (all.compare(count, s1.length(), s1) == 0)
+        {
+            all.erase(count, s1.length());
+            all.insert(count,s2);
+            count += s2.length();
+        }
+        else
+            count++;
     }
     ofs << all;
     return 0;
